@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isacii.c                                        :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: macerver <macerver@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 16:50:25 by macerver          #+#    #+#             */
-/*   Updated: 2025/11/11 11:25:44 by macerver         ###   ########.fr       */
+/*   Created: 2025/11/11 11:27:36 by macerver          #+#    #+#             */
+/*   Updated: 2025/11/11 11:28:36 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isascii(int c)
+int	ft_isprint(int c)
 {
-	if (c >= 0 && c <= 127)
+	if (c >= 32 && c <= 126)
 		return (1);
 	return (0);
 }
