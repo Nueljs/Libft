@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macerver <macerver@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 11:33:23 by macerver          #+#    #+#             */
-/*   Updated: 2025/11/11 12:52:35 by macerver         ###   ########.fr       */
+/*   Updated: 2025/11/11 19:10:42 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
