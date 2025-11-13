@@ -6,20 +6,22 @@
 /*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 11:33:23 by macerver          #+#    #+#             */
-/*   Updated: 2025/11/12 07:54:04 by macerver         ###   ########.fr       */
+/*   Updated: 2025/11/13 00:57:23 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	*ft_memset(void *s, int c, unsigned int n)
 {
 	unsigned char	*s2;
-	int	i;
+	size_t	i;
 
 	i = 0;
-	s2 = s;
+	s2 = (unsigned char *) s;
 	while (i < n)
 	{
-		s2[i] = c;
+		s2[i] = (unsigned char) c;
 		i++;
 	}
 	return (s);
