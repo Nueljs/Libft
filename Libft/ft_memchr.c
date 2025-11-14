@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/14 12:24:42 by macerver          #+#    #+#             */
-/*   Updated: 2025/11/14 12:39:07 by macerver         ###   ########.fr       */
+/*   Created: 2025/11/14 13:20:03 by macerver          #+#    #+#             */
+/*   Updated: 2025/11/14 14:13:40 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t	i;
-	
+	unsigned char	*s2;
+	size_t			i;
+	unsigned char	cc;
+
+	s2 = (unsigned char *) s;
+	cc = (unsigned char) c;
 	i = 0;
-	while (s1[i] && s1[i] == s2[i] && i < n)
+	while (i < n)
+	{
+		if (s2[i] == cc)
+			return ((void *) &s2[i]);
 		i++;
-	return ((unsigned char) s1[i] - (unsigned char) s2[i]);
+	} 
+	return (NULL);
 }
 
-int	main(void)
+int main(void)
 {
-	printf("%d", ft_strncmp("abbc","abbz", 2));
+	const void	*s = "hola";
+	void	*ptr = ft_memchr(s, 'o', 3);
+	printf("Carácter encontrado: %c\n", *(unsigned char *)ptr);
 	return 0;
 }
