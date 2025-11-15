@@ -1,37 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/14 16:38:48 by macerver          #+#    #+#             */
-/*   Updated: 2025/11/15 14:01:46 by macerver         ###   ########.fr       */
+/*   Created: 2025/11/15 15:22:18 by macerver          #+#    #+#             */
+/*   Updated: 2025/11/15 15:43:16 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+int	ft_atoi(char *nptr)
 {
-	size_t			i;
-	unsigned char	*s1_aux;
-	unsigned char	*s2_aux;
+	int	i;
+	int	result;
+	int	sign;
 
 	i = 0;
-	s1_aux = (unsigned char *) s1;
-	s2_aux = (unsigned char *) s2;
-	while (i < n )
+	result = 0;
+	sign = 1;
+	while (nptr[i] == 32 || nptr[i] >= 9 && nptr[i] <= 13)
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
 	{
-		if((unsigned char) s1_aux[i] != (unsigned char) s2_aux[i])
-			return ((unsigned char) s1_aux[i] - (unsigned char) s2_aux[i]);
+		if(nptr[i] == '+')
+			i++;
+		else if (nptr[i] == '-')
+		{
+			sign = -sign;
+			i++;
+		}
+	}
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		result = result * 10 + (nptr[i] - '0');
 		i++;
 	}
-	return (0);
+	return (result * sign);
 }
 
 int	main(void)
 {
-	printf("%d", ft_memcmp("abb","abc", 4));
+	printf("%d", ft_atoi("     	+-123aaa"));
 	return 0;
 }

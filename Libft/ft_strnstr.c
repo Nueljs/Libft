@@ -1,37 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/14 16:38:48 by macerver          #+#    #+#             */
-/*   Updated: 2025/11/15 14:01:46 by macerver         ###   ########.fr       */
+/*   Created: 2025/11/15 14:02:51 by macerver          #+#    #+#             */
+/*   Updated: 2025/11/15 15:15:13 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t			i;
-	unsigned char	*s1_aux;
-	unsigned char	*s2_aux;
-
+	size_t	i;
+	size_t	j;
+	
 	i = 0;
-	s1_aux = (unsigned char *) s1;
-	s2_aux = (unsigned char *) s2;
-	while (i < n )
+	j = 0;
+	if (needle[0] == '\0')
+		return ((char *) haystack);
+	while(haystack[i] && i < len)
 	{
-		if((unsigned char) s1_aux[i] != (unsigned char) s2_aux[i])
-			return ((unsigned char) s1_aux[i] - (unsigned char) s2_aux[i]);
+		if(haystack[i] == needle[j])
+		{
+			while (needle[j] == haystack[i + j] && haystack[i + j] && i + j < len)
+			{
+				j++;
+				if (needle[j] == 0)
+					return ((char *) haystack + i);
+			}
+		}
 		i++;
+		j = 0;
 	}
 	return (0);
 }
 
 int	main(void)
 {
-	printf("%d", ft_memcmp("abb","abc", 4));
+	printf("%s", ft_strnstr("hello world", "wor", 7));
 	return 0;
 }
