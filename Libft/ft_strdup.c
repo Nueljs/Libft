@@ -1,48 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/15 18:27:32 by macerver          #+#    #+#             */
-/*   Updated: 2025/11/16 12:40:38 by macerver         ###   ########.fr       */
+/*   Created: 2025/11/16 12:48:54 by macerver          #+#    #+#             */
+/*   Updated: 2025/11/16 12:58:31 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+char	*ft_strdup(const char *s)
 {
-	void	*tp;
-	size_t	i;
-	unsigned char	*aux;
-
+	int	len;
+	int	i;
+	char	*s_copy;
+	
+	len = ft_strlen(s);
 	i = 0;
-	tp = malloc(nmemb * size);
-	if (!tp)
+	s_copy = (char *)malloc((len + 1)* sizeof(char));
+	if (!s_copy)
 		return (NULL);
-	aux = tp;
-	while (i < nmemb * size)
+	while (i < len)
 	{
-		aux[i] = 0;
+		s_copy[i] = s[i];
 		i++;
 	}
-	return (tp);
-}
-
-int	main(void)
-{
-	size_t	i = 0;
-	int	*fd;
-	fd = ft_calloc(3, sizeof(int));
-	if(!fd)
-		return (1);
-	while (i < 3)
-	{
-		printf("%d\n", fd[i]);
-		i++;
-	}
-	free(fd);
-	return 0;
+	s_copy[i] = '\0';
+	return (s_copy);
 }
