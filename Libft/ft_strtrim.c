@@ -1,40 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/14 11:58:34 by macerver          #+#    #+#             */
-/*   Updated: 2025/11/17 11:56:12 by macerver         ###   ########.fr       */
+/*   Created: 2025/11/17 10:39:33 by macerver          #+#    #+#             */
+/*   Updated: 2025/11/17 12:45:34 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	cc;
+	char	*new_s;
+	int		s1_len;
+	int		set_len;
 	int		i;
-	int		len;
 
-	cc = (char) c;
+	s1_len = ft_strlen(s1);
+	set_len = ft_strlen(set);
 	i = 0;
-	while (s[i])
-		i++;
-	len = i;
-	while (i >= 0)
+	if (ft_strnstr)
 	{
-		if (s[i] == cc)
-			return ((char *) &s[i]);
-		i--;
+		while (s1[i] == set[i])
+		{
+			s1_len--;
+			i++;
+		}
+		i = 0;
+		while (s1[s1_len - 1] == set[i])
+		{
+			s1_len--;
+			i++;
+		}
 	}
-	return ((char *) &s[len]);
 }
-
-// int	main(void)
-// {
-// 	char *s = "hola como estas";
-// 	printf("%s", ft_strrchr(s, 'x'));
-// 	return 0;
-// }

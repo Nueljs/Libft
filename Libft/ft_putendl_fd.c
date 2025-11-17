@@ -1,40 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/14 11:58:34 by macerver          #+#    #+#             */
-/*   Updated: 2025/11/17 11:56:12 by macerver         ###   ########.fr       */
+/*   Created: 2025/11/17 15:32:10 by macerver          #+#    #+#             */
+/*   Updated: 2025/11/17 15:34:07 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	ft_putendl_fd(char *s, int fd)
 {
-	char	cc;
-	int		i;
-	int		len;
-
-	cc = (char) c;
-	i = 0;
-	while (s[i])
-		i++;
-	len = i;
-	while (i >= 0)
+	while (*s)
 	{
-		if (s[i] == cc)
-			return ((char *) &s[i]);
-		i--;
+		write(fd, s, 1);
+		s++;
 	}
-	return ((char *) &s[len]);
+	write(1, '\n', 1);
 }
-
-// int	main(void)
-// {
-// 	char *s = "hola como estas";
-// 	printf("%s", ft_strrchr(s, 'x'));
-// 	return 0;
-// }
