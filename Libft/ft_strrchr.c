@@ -6,7 +6,7 @@
 /*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 11:58:34 by macerver          #+#    #+#             */
-/*   Updated: 2025/11/18 18:17:30 by macerver         ###   ########.fr       */
+/*   Updated: 2025/11/19 01:41:11 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ char	*ft_strrchr(const char *s, int c)
 	while (s[i])
 		i++;
 	len = i;
-	while (i >= 0)
+	while (len >= 0)
 	{
 		if (s[i] == cc)
-			return ((char *) &s[i]);
-		i--;
+			return ((char *) &s[len]);
+		len--;
 	}
 	return (NULL);
 }

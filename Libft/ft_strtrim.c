@@ -6,7 +6,7 @@
 /*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 10:39:33 by macerver          #+#    #+#             */
-/*   Updated: 2025/11/18 18:26:12 by macerver         ###   ########.fr       */
+/*   Updated: 2025/11/19 01:41:27 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,37 @@
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*new_s;
+	int		s_len;
 	int		s1_len;
-	int		set_len;
 	int		i;
 
 	s1_len = ft_strlen(s1);
-	set_len = ft_strlen(set);
-	new_s = ft_strlcpy(new_s, s1, s1_len);
+	s_len = s1_len;
 	i = 0;
-	while (ft_strchr(new_s, set[i]) && new_s >= ft_strchr(new_s, set[i]))
-	{
-		while (ft_strchr(new_s, set[i]))
-		{
-			i++;
-			new_s++;
-		}
-		i = 0;
+	while(ft_strchr(set, s1[i]))
+	{	
+		i++;
+		s1_len--;
 	}
+	s_len--;
+	while (ft_strchr(set, s1[s_len]))
+	{		
+		s1_len--;
+		s_len--;
+	}
+	new_s= malloc(s1_len + 1);
+	if (!new_s)
+		return (NULL);
+	ft_strlcpy(new_s, &s1[i], s1_len + 1);
+	return (new_s);
 }
+
+
+// int	main(void)
+// {
+// 	char *s1 = "aabbbbabbababaHola como estasababab";
+// 	char *s2 = "ab";
+// 	char *s3 = ft_strtrim(s1, s2);
+// 	puts(s3);
+// 	return 0;
+// }
