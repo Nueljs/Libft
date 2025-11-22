@@ -6,7 +6,7 @@
 /*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 06:23:35 by macerver          #+#    #+#             */
-/*   Updated: 2025/11/21 18:11:19 by macerver         ###   ########.fr       */
+/*   Updated: 2025/11/22 19:39:39 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,70 +24,77 @@ int	count_words(const char *str, char c)
 		if (str[i] != c)
 		{
 			words++;
-			while (str[i] != c)
+			while (str[i] && str[i] != c)
 				i++;
 		}
-		i++;
+		else
+			i++;
 	}
-	return words;
+	return (words);
 }
 
 int	word_len(const char *str, char c)
 {
 	int	j;
-	int	word_len;
 
 	j = 0;
-	word_len = 0;
 	if (str[j] != c)
 	{
-		while (str[j] != c)
-		{
+		while (str[j] && str[j] != c)
 			j++;
-			word_len++;
-		}
 	}
-	return (word_len);
+	return (j);
+}
+
+int	split_words(char const *s, char c, char **split, int words)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (s[j] && i < words)
+	{
+		if (s[j] != c)
+		{
+			split[i] = ft_substr(s, j, word_len(&s[j], c));
+			if (!split[i])
+			{
+				while (--i >= 0)
+					free(split[i]);
+				free(split);
+				return (0);
+			}
+			i++;
+			while (s[j] && s[j] != c)
+				j++;
+		}
+		else
+			j++;
+	}
+	return (1);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**split;
-	int		i;
-	int		j;
+	int		words;
 
-	split = malloc((count_words(s, c) + 1) * sizeof(char *));
+	if (!s)
+		return (NULL);
+	words = count_words(s, c);
+	split = malloc((words + 1) * sizeof(char *));
 	if (!split)
 		return (NULL);
-	split[count_words(s, c)] = NULL;
-	i = 0;
-	j = 0;
-	while (s[j])
-	{
-		if (s[j] != c)
-		{
-			split[i] = malloc(word_len(&s[j], c) + 1);
-			if (!split[i])
-			{
-				free (split);
-				return (NULL);
-			}
-			ft_strlcpy(split[i], &s[j], word_len(&s[j], c));
-			i++;
-			while (s[j] != c)
-				j++;
-			continue ;
-		}
-		j++;
-	}
+	split[words] = NULL;
+	if (!split_words(s, c, split, words))
+		return (NULL);
 	return (split);
 }
 
-
-
 // int main(void)
 // {
-//     char *s = "olol                              ";
+//     char *s = "lorem ipsum dolor sit amet,";
 //     char sep = ' ';
 
 //     printf("String: \"%s\"\n", s);

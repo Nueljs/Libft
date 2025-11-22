@@ -6,16 +6,16 @@
 /*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 12:41:13 by macerver          #+#    #+#             */
-/*   Updated: 2025/11/16 18:46:19 by macerver         ###   ########.fr       */
+/*   Updated: 2025/11/22 19:35:07 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
 	unsigned char	*s2;
-	
+
 	s2 = (unsigned char *) s;
 	while (n > 0)
 	{

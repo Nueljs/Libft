@@ -6,7 +6,7 @@
 /*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 16:38:48 by macerver          #+#    #+#             */
-/*   Updated: 2025/11/16 18:46:37 by macerver         ###   ########.fr       */
+/*   Updated: 2025/11/22 19:34:31 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	i = 0;
 	s1_aux = (unsigned char *) s1;
 	s2_aux = (unsigned char *) s2;
-	while (i < n )
+	while (i < n)
 	{
-		if((unsigned char) s1_aux[i] != (unsigned char) s2_aux[i])
+		if ((unsigned char) s1_aux[i] != (unsigned char) s2_aux[i])
 			return ((unsigned char) s1_aux[i] - (unsigned char) s2_aux[i]);
 		i++;
 	}

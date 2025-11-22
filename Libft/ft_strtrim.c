@@ -6,7 +6,7 @@
 /*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 10:39:33 by macerver          #+#    #+#             */
-/*   Updated: 2025/11/19 06:20:51 by macerver         ###   ########.fr       */
+/*   Updated: 2025/11/22 19:52:42 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,26 +24,25 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (ft_strdup(""));
 	s_len = s1_len;
 	i = 0;
-	while(ft_strchr(set, s1[i]))
-	{	
+	while (ft_strchr(set, s1[i]))
+	{
 		i++;
 		s1_len--;
 	}
 	s_len--;
 	while (ft_strchr(set, s1[s_len]) && s_len >= 0)
-	{		
+	{
 		s1_len--;
 		s_len--;
 	}
 	if (s_len < 0)
 		return (ft_strdup(""));
-	new_s= malloc(s1_len + 1);
+	new_s = malloc(s1_len + 1);
 	if (!new_s)
 		return (NULL);
 	ft_strlcpy(new_s, &s1[i], s1_len + 1);
 	return (new_s);
 }
-
 
 // int	main(void)
 // {

@@ -6,7 +6,7 @@
 /*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 10:49:43 by macerver          #+#    #+#             */
-/*   Updated: 2025/11/13 12:55:02 by macerver         ###   ########.fr       */
+/*   Updated: 2025/11/22 18:10:37 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	unsigned char	*tmpsrc;
 	size_t			i;
 
-	if (!src || !dest)
+	if (n == 0)
 		return (dest);
+	if (!dest && !src)
+		return (NULL);
 	i = 0;
 	tmpsrc = (unsigned char *) src;
 	tmpdest = (unsigned char *) dest;

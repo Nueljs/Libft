@@ -6,12 +6,11 @@
 /*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 20:27:49 by macerver          #+#    #+#             */
-/*   Updated: 2025/11/17 10:35:54 by macerver         ###   ########.fr       */
+/*   Updated: 2025/11/22 19:37:10 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

@@ -6,13 +6,13 @@
 /*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 16:50:25 by macerver          #+#    #+#             */
-/*   Updated: 2025/11/13 09:32:50 by macerver         ###   ########.fr       */
+/*   Updated: 2025/11/22 18:18:30 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isascii(int c)
+int	ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)
 		return (1);

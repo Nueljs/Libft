@@ -6,7 +6,7 @@
 /*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 11:58:34 by macerver          #+#    #+#             */
-/*   Updated: 2025/11/21 18:43:31 by macerver         ###   ########.fr       */
+/*   Updated: 2025/11/22 19:36:36 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	return (NULL);
 }
-
 
 // int	main(void)
 // {

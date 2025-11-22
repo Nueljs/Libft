@@ -6,17 +6,17 @@
 /*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 15:22:18 by macerver          #+#    #+#             */
-/*   Updated: 2025/11/21 18:18:53 by macerver         ###   ########.fr       */
+/*   Updated: 2025/11/22 19:46:43 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(char *nptr)
+int	ft_atoi(const char *nptr)
 {
-	int	i;
-	int	result;
-	int	sign;
+	int		i;
+	long	result;
+	int		sign;
 
 	i = 0;
 	result = 0;
@@ -25,13 +25,11 @@ int	ft_atoi(char *nptr)
 		i++;
 	if (nptr[i] == '-' || nptr[i] == '+')
 	{
-		if (nptr[i] == '+')
-			i++;
-		else if (nptr[i] == '-')
-		{
-			sign = -sign;
-			i++;
-		}
+		if (nptr[i] == '-')
+			sign = -1;
+		i++;
+		if (nptr[i] == '+' || nptr[i] == '-')
+			return (0);
 	}
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{

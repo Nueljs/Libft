@@ -6,7 +6,7 @@
 /*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 17:58:29 by macerver          #+#    #+#             */
-/*   Updated: 2025/11/13 13:30:02 by macerver         ###   ########.fr       */
+/*   Updated: 2025/11/22 18:17:19 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	unsigned char	*tmp_src;
 	size_t			i;
 
-	if (!dest || !src)
+	if (n == 0)
 		return (dest);
+	if (!dest && !src)
+		return (NULL);
 	tmp_dest = (unsigned char *) dest;
 	tmp_src = (unsigned char *) src;
 	i = 0;
