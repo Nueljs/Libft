@@ -6,7 +6,7 @@
 /*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 17:49:03 by macerver          #+#    #+#             */
-/*   Updated: 2025/11/25 06:31:23 by macerver         ###   ########.fr       */
+/*   Updated: 2025/11/25 17:56:01 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list	*last;
+	t_list	*aux;
 
-	last = *lst;
-	if (!last)
-		last = new;
-	while (last -> next != NULL)
-		last = last -> next;
-	if (last -> next == NULL)
-		last -> next = new;
+	aux = *lst;
+	if (*lst == NULL)
+	{
+		(*lst) = new;
+		return ;
+	}
+	while (aux -> next != NULL)
+		aux = aux -> next;
+	aux -> next = new;
 }
