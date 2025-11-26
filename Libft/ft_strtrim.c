@@ -6,13 +6,13 @@
 /*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 10:39:33 by macerver          #+#    #+#             */
-/*   Updated: 2025/11/23 19:42:29 by macerver         ###   ########.fr       */
+/*   Updated: 2025/11/26 04:06:28 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	real_len(int *s_len, int *s1_len, const char *set, const char *s1)
+static int	real_len(int *s_len, int *s1_len, const char *set, const char *s1)
 {
 	int	i;
 

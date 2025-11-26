@@ -6,13 +6,13 @@
 /*   By: macerver <macerver@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 06:19:59 by macerver          #+#    #+#             */
-/*   Updated: 2025/11/20 17:23:49 by macerver         ###   ########.fr       */
+/*   Updated: 2025/11/26 04:07:16 by macerver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count_digits(long n)
+static int	count_digits(long n)
 {
 	int	len;
 
